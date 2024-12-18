@@ -7,99 +7,50 @@ TABLERO_COLUMNAS = 11
 tablero = [[0 for _ in range(TABLERO_COLUMNAS)] for _ in range(TABLERO_FILAS)]
 
 piezas = {
-    "l": [(0, 0), (0, 1), (1, 0)],
-    "z": [(1, 0), (1, 1), (0, 1), (0, 2)],
-    "t": [(0, 0), (0, 1), (0, 2), (1, 1)],
-    "ł": [(0, 0), (0, 1), (0, 2), (1, 0)],
-    "P": [(0, 1), (1, 0), (1, 1), (0, 2), (1, 2)],
-    "Z": [(1, 0), (1, 1), (1, 2), (0, 2), (0, 3)],
-    "T": [(0, 0), (0, 1), (0, 2), (0, 3), (1, 1)],
+    "Y": [(0, 0), (1, 0), (1, 1), (1, 2), (2, 1)],
     "M": [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2)],
+    "L": [(0, 0), (0, 1), (0, 2), (0, 3), (1, 0)],
+    "Z": [(0, 0), (0, 1), (1, 1), (1, 2), (1, 3)],
+    "T": [(0, 0), (0, 1), (0, 2), (0, 3), (1, 1)],
     "V": [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2)],
     "U": [(0, 0), (0, 1), (0, 2), (1, 0), (1, 2)],
-    "L": [(0, 0), (0, 1), (0, 2), (0, 3), (1, 0)],
-    "Y": [(0, 0), (1, 0), (1, 1), (1, 2), (2, 1)],
+    "P": [(0, 0), (0, 1), (1, 0), (1, 1), (2, 0)],
+    "z": [(0, 0), (0, 1), (1, 1), (1, 2)],
+    "t": [(0, 0), (0, 1), (0, 2), (1, 1)],
+    "ł": [(0, 0), (0, 1), (0, 2), (1, 0)],
+    "l": [(0, 0), (0, 1), (1, 0)],
 }
-huecos = [
-    #  #
-    # #.#
-    #  #
-    {
-        (0, 0): 0,
-        (0, 1): 1,
-        (1, 0): 1,
-        (-1, 0): 1,
-        (0, -1): 1,
-    },
-    #  ##
-    # #..#
-    #  ##
-    {
-        (0, 0): 0,
-        (0, 1): 0,
-        (0, 2): 1,
-        (1, 0): 1,
-        (1, 1): 1,
-        (-1, 0): 1,
-        (-1, 1): 1,
-        (0, -1): 1,
-    },
-    #  ###
-    # #...#
-    #  ###
-    {
-        (-1, 0): 1,
-        (-1, 1): 1,
-        (-1, 2): 1,
-        (0, -1): 1,
-        (0, 0): 0,
-        (0, 1): 0,
-        (0, 2): 0,
-        (0, 3): 1,
-        (1, 0): 1,
-        (1, 1): 1,
-        (1, 2): 1,
-    },
-    #  #
-    # #.#
-    # #.#
-    #  #
-    {
-        (-1, 0): 1,
-        (0, -1): 1,
-        (0, 0): 0,
-        (0, 1): 1,
-        (1, -1): 1,
-        (1, 0): 0,
-        (1, 1): 1,
-        (2, 0): 1,
-    },
-    #  #
-    # #.#
-    # #.#
-    # #.#
-    #  #
-    {
-        (-1, 0): 1,
-        (0, -1): 1,
-        (0, 0): 0,
-        (0, 1): 1,
-        (1, -1): 1,
-        (1, 0): 0,
-        (1, 1): 1,
-        (2, -1): 1,
-        (2, 0): 0,
-        (2, 1): 1,
-        (3, 0): 1,
-    },
-]
+
+
+def print_pieza(pieza):
+    min_row = min(r for r, _ in pieza)
+    min_col = min(c for _, c in pieza)
+    max_row = max(r for r, _ in pieza)
+    max_col = max(c for _, c in pieza)
+    pieza_set = set(pieza)
+    for r in range(min_row, max_row + 1):
+        for c in range(min_col, max_col + 1):
+            value = " "
+            if (r, c) in pieza_set:
+                value = "#"
+            if r == 0 and c == 0:
+                if (r, c) in pieza_set:
+                    value = "O"
+                else:
+                    value = "."
+            print(value, end="")
+        print()
 
 
 def normalizar(pieza):
     """Normaliza las coordenadas de la pieza para que todas sean positivas."""
     min_row = min(r for r, _ in pieza)
     min_col = min(c for _, c in pieza)
-    return [(r - min_row, c - min_col) for r, c in pieza]
+    return normalizar_respecto_a(pieza, min_row, min_col)
+
+
+def normalizar_respecto_a(pieza, row, col):
+    return [(r - row, c - col) for r, c in pieza]
 
 
 def rotar_pieza(pieza):
@@ -122,11 +73,12 @@ def generar_variantes(pieza):
     variantes = set()
     actual = pieza
     for _ in range(4):
-        actual = rotar_pieza(actual)
         variantes.add(tuple(sorted(actual)))
         variantes.add(tuple(sorted(espejar_horizontal(actual))))
-        variantes.add(tuple(sorted(espejar_vertical(actual))))
-    return [list(variante) for variante in variantes]
+        # Espejar vertical es lo mismo que girar 180 grados y espejar horizontal.
+        # variantes.add(tuple(sorted(espejar_vertical(actual))))
+        actual = rotar_pieza(actual)
+    return list(variantes)
 
 
 # Generar todas las variantes de las piezas
@@ -171,32 +123,43 @@ def quitar_pieza(tablero, pieza, fila, columna):
     colocar_pieza(tablero, pieza, fila, columna, 0)
 
 
-def resolver(tablero, todas_piezas):
-    if not todas_piezas:
+def encontrar_primera(pieza):
+    return pieza[0]
+
+
+def resolver(tablero, todas_piezas, fila, columna):
+    if columna == TABLERO_COLUMNAS:
+        fila += 1
+        columna = 0
+
+    if fila == TABLERO_FILAS:
+        # solucion encontrada, asumimos que las piezas proporcionadas pueden
+        # cubrir el tablero
         yield tablero
-    else:
-        nombre_pieza, variantes = todas_piezas.popitem()
-        for fila in range(TABLERO_FILAS):
-            for columna in range(TABLERO_COLUMNAS):
-                for variante in variantes:
-                    if nombre_pieza == "Y":
-                        print(f"probando una variante de Y en {fila} {columna}")
-                    if puede_colocar(tablero, variante, fila, columna):
-                        colocar_pieza(tablero, variante, fila, columna, nombre_pieza)
-                        if not hay_huecos_imposibles(tablero):
-                            yield from resolver(tablero, todas_piezas)
-                        quitar_pieza(tablero, variante, fila, columna)
-        todas_piezas[nombre_pieza] = variantes
+        return
 
-
-def hay_huecos_imposibles(tablero):
-    for f in range(TABLERO_FILAS):
-        for c in range(TABLERO_COLUMNAS):
-            if tablero[f][c] == 0:
-                for hueco in huecos:
-                    if hay_hueco(tablero, hueco, f, c):
-                        return True
-    return False
+    if tablero[fila][columna] == 0:
+        for nombre_pieza in list(todas_piezas.keys()):
+            variantes = todas_piezas[nombre_pieza]
+            for variante in variantes:
+                pivot_row, pivot_col = encontrar_primera(variante)
+                variante_norm = normalizar_respecto_a(variante, pivot_row, pivot_col)
+                if puede_colocar(tablero, variante_norm, fila, columna):
+                    colocar_pieza(
+                        tablero,
+                        variante_norm,
+                        fila,
+                        columna,
+                        nombre_pieza,
+                    )
+                    del todas_piezas[nombre_pieza]
+                    yield from resolver(tablero, todas_piezas, fila, columna + 1)
+                    todas_piezas[nombre_pieza] = variantes
+                    quitar_pieza(tablero, variante_norm, fila, columna)
+        if tablero[fila][columna] == 0:
+            # no ha sido posible poner ninguna pieza
+            return
+    yield from resolver(tablero, todas_piezas, fila, columna + 1)
 
 
 def imprimir_tablero(tablero):
@@ -205,10 +168,29 @@ def imprimir_tablero(tablero):
     print()
 
 
+# for name, shapes in todas_piezas.items():
+#    print(name, len(shapes))
+# l 4
+# z 4
+# t 4
+# ł 8
+# P 8
+# Z 8
+# T 8
+# M 4
+# V 4
+# U 4
+# L 8
+# Y 8
+
+# for i, pieza in enumerate(todas_piezas["z"]):
+#    print("Pieza", i)
+#    print_pieza(pieza)
+
 # Ejecutamos el algoritmo de resolución
 start = time.time()
 soluciones = set()
-for solucion in resolver(tablero, todas_piezas):
+for solucion in resolver(tablero, todas_piezas, 0, 0):
     tablero_tuple = tuple(tuple(row) for row in tablero)
     assert tablero_tuple not in soluciones, tablero_tuple
     soluciones.add(tablero_tuple)
@@ -217,3 +199,5 @@ for solucion in resolver(tablero, todas_piezas):
         print(f"Elapsed time {et}")
         print(f"Solución {len(soluciones)}:")
         imprimir_tablero(tablero)
+if not soluciones:
+    print("Sin soluciones :(")
