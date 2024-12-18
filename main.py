@@ -43,9 +43,10 @@ def print_pieza(pieza):
 
 
 def normalizar(pieza):
-    """Normaliza las coordenadas de la pieza para que todas sean positivas."""
-    min_row = min(r for r, _ in pieza)
-    min_col = min(c for _, c in pieza)
+    """Normaliza las coordenadas de la pieza para que la 0,0 sea la primera celda que se encuentre iterando filas y columnas por ese orden."""
+    min_row, min_col = sorted(pieza)[0]
+    # min_row = min(r for r, _ in pieza)
+    # min_col = min(c for _, c in pieza)
     return normalizar_respecto_a(pieza, min_row, min_col)
 
 
@@ -63,11 +64,6 @@ def espejar_horizontal(pieza):
     return normalizar([(row, -col) for row, col in pieza])
 
 
-def espejar_vertical(pieza):
-    """Genera el espejo vertical de la pieza y la normaliza."""
-    return normalizar([(-row, col) for row, col in pieza])
-
-
 def generar_variantes(pieza):
     """Genera todas las variantes de una pieza (rotaciones y espejos)."""
     variantes = set()
@@ -75,8 +71,6 @@ def generar_variantes(pieza):
     for _ in range(4):
         variantes.add(tuple(sorted(actual)))
         variantes.add(tuple(sorted(espejar_horizontal(actual))))
-        # Espejar vertical es lo mismo que girar 180 grados y espejar horizontal.
-        # variantes.add(tuple(sorted(espejar_vertical(actual))))
         actual = rotar_pieza(actual)
     return list(variantes)
 
@@ -97,18 +91,6 @@ def puede_colocar(tablero, pieza, fila, columna):
             or c >= TABLERO_COLUMNAS
             or tablero[r][c] != 0
         ):
-            return False
-    return True
-
-
-def hay_hueco(tablero, hueco, fila, columna):
-    for (dr, dc), esperado in hueco.items():
-        r, c = fila + dr, columna + dc
-        if r < 0 or r >= TABLERO_FILAS or c < 0 or c >= TABLERO_COLUMNAS:
-            valor = 1
-        else:
-            valor = 0 if tablero[r][c] == 0 else 1
-        if valor != esperado:
             return False
     return True
 
@@ -142,12 +124,10 @@ def resolver(tablero, todas_piezas, fila, columna):
         for nombre_pieza in list(todas_piezas.keys()):
             variantes = todas_piezas[nombre_pieza]
             for variante in variantes:
-                pivot_row, pivot_col = encontrar_primera(variante)
-                variante_norm = normalizar_respecto_a(variante, pivot_row, pivot_col)
-                if puede_colocar(tablero, variante_norm, fila, columna):
+                if puede_colocar(tablero, variante, fila, columna):
                     colocar_pieza(
                         tablero,
-                        variante_norm,
+                        variante,
                         fila,
                         columna,
                         nombre_pieza,
@@ -155,7 +135,7 @@ def resolver(tablero, todas_piezas, fila, columna):
                     del todas_piezas[nombre_pieza]
                     yield from resolver(tablero, todas_piezas, fila, columna + 1)
                     todas_piezas[nombre_pieza] = variantes
-                    quitar_pieza(tablero, variante_norm, fila, columna)
+                    quitar_pieza(tablero, variante, fila, columna)
         if tablero[fila][columna] == 0:
             # no ha sido posible poner ninguna pieza
             return
@@ -201,3 +181,12 @@ for solucion in resolver(tablero, todas_piezas, 0, 0):
         imprimir_tablero(tablero)
 if not soluciones:
     print("Sin soluciones :(")
+
+"""
+La solución número 1000 debe ser:
+Y Y M M T T T T t t t
+L Y Y M M T z z U t U
+L Y P P M z z V U U U
+L P P P Z Z l V ł ł ł
+L L Z Z Z l l V V V ł
+"""
