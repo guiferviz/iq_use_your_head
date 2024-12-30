@@ -7,6 +7,16 @@ TABLERO_COLUMNAS = 11
 tablero = [[0 for _ in range(TABLERO_COLUMNAS)] for _ in range(TABLERO_FILAS)]
 
 piezas = {
+    # "#": [
+    #    (0, 0), (0, 1), (0, 2), (0, 3), (0, 8), (1, 0), (1, 1), (1, 2), (1, 3),
+    #    (2, 0), (2, 1), (3, 0), (3, 1), (5, 7), (5, 8), (6, 7), (6, 8), (7, 5),
+    #    (7, 6), (7, 7), (7, 8), (8, 0), (8, 5), (8, 6), (8, 7), (8, 8),
+    #    # letras
+    #    # (0, 6), (0, 7),
+    #    # (1, 7), (1, 8),
+    #    (2, 8), (3, 8), (4, 3), (4, 6), (4, 7), (4, 8), (5, 3), (5, 4), (5, 5),
+    #    (5, 6), (6, 4), (6, 5), (6, 6),
+    # ],
     "Y": [(0, 0), (1, 0), (1, 1), (1, 2), (2, 1)],
     "M": [(0, 0), (0, 1), (1, 1), (1, 2), (2, 2)],
     "L": [(0, 0), (0, 1), (0, 2), (0, 3), (1, 0)],
@@ -78,7 +88,7 @@ def generar_variantes(pieza):
 # Generar todas las variantes de las piezas
 todas_piezas = {}
 for nombre, pieza in piezas.items():
-    todas_piezas[nombre] = generar_variantes(pieza)
+    todas_piezas[nombre] = generar_variantes(pieza) if nombre != "#" else [pieza]
 
 
 def puede_colocar(tablero, pieza, fila, columna):
@@ -167,20 +177,38 @@ def imprimir_tablero(tablero):
 #    print("Pieza", i)
 #    print_pieza(pieza)
 
+
 # Ejecutamos el algoritmo de resolución
-start = time.time()
-soluciones = set()
-for solucion in resolver(tablero, todas_piezas, 0, 0):
-    tablero_tuple = tuple(tuple(row) for row in tablero)
-    assert tablero_tuple not in soluciones, tablero_tuple
-    soluciones.add(tablero_tuple)
-    if len(soluciones) % 1000 == 0:
-        et = time.time() - start
-        print(f"Elapsed time {et}")
-        print(f"Solución {len(soluciones)}:")
-        imprimir_tablero(tablero)
-if not soluciones:
-    print("Sin soluciones :(")
+def main_solve():
+    start = time.time()
+    soluciones = set()
+    for solucion in resolver(tablero, todas_piezas, 0, 0):
+        tablero_tuple = tuple(tuple(row) for row in tablero)
+        assert tablero_tuple not in soluciones, tablero_tuple
+        soluciones.add(tablero_tuple)
+        if len(soluciones) % 1000 == 0:
+            et = time.time() - start
+            print(f"Elapsed time {et}")
+            print(f"Solución {len(soluciones)}:")
+            imprimir_tablero(tablero)
+    if not soluciones:
+        print("Sin soluciones :(")
+
+
+main_solve()
+"""
+# Cuenta posibles celdas para poner piezas.
+count = 0
+for fila in range(TABLERO_FILAS):
+    for columna in range(TABLERO_COLUMNAS):
+        for nombre_pieza in list(todas_piezas.keys()):
+            variantes = todas_piezas[nombre_pieza]
+            for variante in variantes:
+                if puede_colocar(tablero, variante, fila, columna):
+                    count += 1
+                    print(f"puedo colocar {nombre_pieza} en {fila},{columna}")
+print(f"filas totales {count}")
+"""
 
 """
 La solución número 1000 debe ser:
