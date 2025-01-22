@@ -1,0 +1,30 @@
+constraints:
+  C1: Cell 0,0 filled.
+  C2: Cell 0,1 filled.
+  C3: Cell 1,0 filled.
+  C4: Cell 1,1 filled.
+  1L: L piece placed just once.
+  1D1: D1 piece placed just once.
+  1D2: D2 piece placed just once.
+  1M: 1M piece placed just once.
+candidates:
+  C1 C2 C3 1L: Placing L piece.
+  C1 C2 C4 1L: Placing L piece.
+  C2 C4 C3 1L: Placing L piece.
+  C1 C3 C4 1L: Placing L piece.
+  1L: L piece does not need to be placed.
+  C1 1D1: Placing D1 piece.
+  C2 1D1: Placing D1 piece.
+  C3 1D1: Placing D1 piece.
+  C4 1D1: Placing D1 piece.
+  1D1: D1 piece does not need to be placed.
+  C1 1D2: Placing D2 piece.
+  C2 1D2: Placing D2 piece.
+  C3 1D2: Placing D2 piece.
+  C4 1D2: Placing D2 piece.
+  1D2: D2 piece does not need to be placed.
+  C1 C2 1M: Placing M piece.
+  C1 C3 1M: Placing M piece.
+  C2 C4 1M: Placing M piece.
+  C3 C4 1M: Placing M piece.
+  1M: M piece does not need to be placed.
