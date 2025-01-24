@@ -1,3 +1,5 @@
+import yaml
+
 import time
 
 
@@ -195,21 +197,50 @@ def main_solve():
         print("Sin soluciones :(")
 
 
+def obtener_celdas_con_uno(matriz):
+    celdas_con_uno = []
+    for i in range(TABLERO_FILAS):
+        for j in range(TABLERO_COLUMNAS):
+            if matriz[i][j] == 1:
+                indice_celda = i * TABLERO_COLUMNAS + j
+                celdas_con_uno.append(f"C{indice_celda}")
+
+    return celdas_con_uno
+
+
+"""
 main_solve()
 """
 # Cuenta posibles celdas para poner piezas.
-count = 0
+candidates = {}
 for fila in range(TABLERO_FILAS):
     for columna in range(TABLERO_COLUMNAS):
         for nombre_pieza in list(todas_piezas.keys()):
             variantes = todas_piezas[nombre_pieza]
             for variante in variantes:
                 if puede_colocar(tablero, variante, fila, columna):
-                    count += 1
-                    print(f"puedo colocar {nombre_pieza} en {fila},{columna}")
-print(f"filas totales {count}")
-"""
+                    colocar_pieza(
+                        tablero,
+                        variante,
+                        fila,
+                        columna,
+                        1,
+                    )
+                    candidates[
+                        " ".join(obtener_celdas_con_uno(tablero) + [nombre_pieza])
+                    ] = f"Piece {nombre_pieza} in {fila},{columna}"
+                    quitar_pieza(tablero, variante, fila, columna)
+constraints = {
+    element: "Cell" for sublist in candidates.keys() for element in sublist.split()
+}
+for nombre_pieza in list(todas_piezas.keys()):
+    constraints[nombre_pieza] = "Piece"
+# Create dictionary for YAML
+data = {"constraints": constraints, "candidates": candidates}
 
+# Convert to YAML
+yaml_data = yaml.dump(data, sort_keys=False, allow_unicode=True)
+print(yaml_data)
 """
 La solución número 1000 debe ser:
 Y Y M M T T T T t t t

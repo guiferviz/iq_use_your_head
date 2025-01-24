@@ -4,13 +4,13 @@ constraints:
   C3: Cell 1,0 filled.
   C4: Cell 1,1 filled.
   1L: L piece placed just once.
-  1D1: D1 piece placed just once.
+  1D: D piece placed just once.
 candidates:
   C1 C2 C3 1L: Placing L piece.
   C1 C2 C4 1L: Placing L piece.
   C2 C4 C3 1L: Placing L piece.
   C1 C3 C4 1L: Placing L piece.
-  C1 1D1: Placing D1 piece.
-  C2 1D1: Placing D1 piece.
-  C3 1D1: Placing D1 piece.
-  C4 1D1: Placing D1 piece.
+  C1 1D: Placing D1 piece.
+  C2 1D: Placing D1 piece.
+  C3 1D: Placing D1 piece.
+  C4 1D: Placing D1 piece.

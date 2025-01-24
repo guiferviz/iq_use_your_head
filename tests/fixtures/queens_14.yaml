@@ -1,0 +1,335 @@
+constraints:
+  R1: Row 1 has a queen.
+  C1: Column 1 has a queen.
+  R2: Row 2 has a queen.
+  C2: Column 2 has a queen.
+  R3: Row 3 has a queen.
+  C3: Column 3 has a queen.
+  R4: Row 4 has a queen.
+  C4: Column 4 has a queen.
+  R5: Row 5 has a queen.
+  C5: Column 5 has a queen.
+  R6: Row 6 has a queen.
+  C6: Column 6 has a queen.
+  R7: Row 7 has a queen.
+  C7: Column 7 has a queen.
+  R8: Row 8 has a queen.
+  C8: Column 8 has a queen.
+  R9: Row 9 has a queen.
+  C9: Column 9 has a queen.
+  R10: Row 10 has a queen.
+  C10: Column 10 has a queen.
+  R11: Row 11 has a queen.
+  C11: Column 11 has a queen.
+  R12: Row 12 has a queen.
+  C12: Column 12 has a queen.
+  R13: Row 13 has a queen.
+  C13: Column 13 has a queen.
+  R14: Row 14 has a queen.
+  C14: Column 14 has a queen.
+  D0: Major diagonal 0 has a queen.
+  A0: Minor diagonal 0 has a queen.
+  D1: Major diagonal 1 has a queen.
+  A1: Minor diagonal 1 has a queen.
+  D2: Major diagonal 2 has a queen.
+  A2: Minor diagonal 2 has a queen.
+  D3: Major diagonal 3 has a queen.
+  A3: Minor diagonal 3 has a queen.
+  D4: Major diagonal 4 has a queen.
+  A4: Minor diagonal 4 has a queen.
+  D5: Major diagonal 5 has a queen.
+  A5: Minor diagonal 5 has a queen.
+  D6: Major diagonal 6 has a queen.
+  A6: Minor diagonal 6 has a queen.
+  D7: Major diagonal 7 has a queen.
+  A7: Minor diagonal 7 has a queen.
+  D8: Major diagonal 8 has a queen.
+  A8: Minor diagonal 8 has a queen.
+  D9: Major diagonal 9 has a queen.
+  A9: Minor diagonal 9 has a queen.
+  D10: Major diagonal 10 has a queen.
+  A10: Minor diagonal 10 has a queen.
+  D11: Major diagonal 11 has a queen.
+  A11: Minor diagonal 11 has a queen.
+  D12: Major diagonal 12 has a queen.
+  A12: Minor diagonal 12 has a queen.
+  D13: Major diagonal 13 has a queen.
+  A13: Minor diagonal 13 has a queen.
+  D14: Major diagonal 14 has a queen.
+  A14: Minor diagonal 14 has a queen.
+  D15: Major diagonal 15 has a queen.
+  A15: Minor diagonal 15 has a queen.
+  D16: Major diagonal 16 has a queen.
+  A16: Minor diagonal 16 has a queen.
+  D17: Major diagonal 17 has a queen.
+  A17: Minor diagonal 17 has a queen.
+  D18: Major diagonal 18 has a queen.
+  A18: Minor diagonal 18 has a queen.
+  D19: Major diagonal 19 has a queen.
+  A19: Minor diagonal 19 has a queen.
+  D20: Major diagonal 20 has a queen.
+  A20: Minor diagonal 20 has a queen.
+  D21: Major diagonal 21 has a queen.
+  A21: Minor diagonal 21 has a queen.
+  D22: Major diagonal 22 has a queen.
+  A22: Minor diagonal 22 has a queen.
+  D23: Major diagonal 23 has a queen.
+  A23: Minor diagonal 23 has a queen.
+  D24: Major diagonal 24 has a queen.
+  A24: Minor diagonal 24 has a queen.
+  D25: Major diagonal 25 has a queen.
+  A25: Minor diagonal 25 has a queen.
+  D26: Major diagonal 26 has a queen.
+  A26: Minor diagonal 26 has a queen.
+candidates:
+  R1 C1 D13 A0: Queen at (0, 0)
+  R1 C2 D12 A1: Queen at (0, 1)
+  R1 C3 D11 A2: Queen at (0, 2)
+  R1 C4 D10 A3: Queen at (0, 3)
+  R1 C5 D9 A4: Queen at (0, 4)
+  R1 C6 D8 A5: Queen at (0, 5)
+  R1 C7 D7 A6: Queen at (0, 6)
+  R1 C8 D6 A7: Queen at (0, 7)
+  R1 C9 D5 A8: Queen at (0, 8)
+  R1 C10 D4 A9: Queen at (0, 9)
+  R1 C11 D3 A10: Queen at (0, 10)
+  R1 C12 D2 A11: Queen at (0, 11)
+  R1 C13 D1 A12: Queen at (0, 12)
+  R1 C14 D0 A13: Queen at (0, 13)
+  R2 C1 D14 A1: Queen at (1, 0)
+  R2 C2 D13 A2: Queen at (1, 1)
+  R2 C3 D12 A3: Queen at (1, 2)
+  R2 C4 D11 A4: Queen at (1, 3)
+  R2 C5 D10 A5: Queen at (1, 4)
+  R2 C6 D9 A6: Queen at (1, 5)
+  R2 C7 D8 A7: Queen at (1, 6)
+  R2 C8 D7 A8: Queen at (1, 7)
+  R2 C9 D6 A9: Queen at (1, 8)
+  R2 C10 D5 A10: Queen at (1, 9)
+  R2 C11 D4 A11: Queen at (1, 10)
+  R2 C12 D3 A12: Queen at (1, 11)
+  R2 C13 D2 A13: Queen at (1, 12)
+  R2 C14 D1 A14: Queen at (1, 13)
+  R3 C1 D15 A2: Queen at (2, 0)
+  R3 C2 D14 A3: Queen at (2, 1)
+  R3 C3 D13 A4: Queen at (2, 2)
+  R3 C4 D12 A5: Queen at (2, 3)
+  R3 C5 D11 A6: Queen at (2, 4)
+  R3 C6 D10 A7: Queen at (2, 5)
+  R3 C7 D9 A8: Queen at (2, 6)
+  R3 C8 D8 A9: Queen at (2, 7)
+  R3 C9 D7 A10: Queen at (2, 8)
+  R3 C10 D6 A11: Queen at (2, 9)
+  R3 C11 D5 A12: Queen at (2, 10)
+  R3 C12 D4 A13: Queen at (2, 11)
+  R3 C13 D3 A14: Queen at (2, 12)
+  R3 C14 D2 A15: Queen at (2, 13)
+  R4 C1 D16 A3: Queen at (3, 0)
+  R4 C2 D15 A4: Queen at (3, 1)
+  R4 C3 D14 A5: Queen at (3, 2)
+  R4 C4 D13 A6: Queen at (3, 3)
+  R4 C5 D12 A7: Queen at (3, 4)
+  R4 C6 D11 A8: Queen at (3, 5)
+  R4 C7 D10 A9: Queen at (3, 6)
+  R4 C8 D9 A10: Queen at (3, 7)
+  R4 C9 D8 A11: Queen at (3, 8)
+  R4 C10 D7 A12: Queen at (3, 9)
+  R4 C11 D6 A13: Queen at (3, 10)
+  R4 C12 D5 A14: Queen at (3, 11)
+  R4 C13 D4 A15: Queen at (3, 12)
+  R4 C14 D3 A16: Queen at (3, 13)
+  R5 C1 D17 A4: Queen at (4, 0)
+  R5 C2 D16 A5: Queen at (4, 1)
+  R5 C3 D15 A6: Queen at (4, 2)
+  R5 C4 D14 A7: Queen at (4, 3)
+  R5 C5 D13 A8: Queen at (4, 4)
+  R5 C6 D12 A9: Queen at (4, 5)
+  R5 C7 D11 A10: Queen at (4, 6)
+  R5 C8 D10 A11: Queen at (4, 7)
+  R5 C9 D9 A12: Queen at (4, 8)
+  R5 C10 D8 A13: Queen at (4, 9)
+  R5 C11 D7 A14: Queen at (4, 10)
+  R5 C12 D6 A15: Queen at (4, 11)
+  R5 C13 D5 A16: Queen at (4, 12)
+  R5 C14 D4 A17: Queen at (4, 13)
+  R6 C1 D18 A5: Queen at (5, 0)
+  R6 C2 D17 A6: Queen at (5, 1)
+  R6 C3 D16 A7: Queen at (5, 2)
+  R6 C4 D15 A8: Queen at (5, 3)
+  R6 C5 D14 A9: Queen at (5, 4)
+  R6 C6 D13 A10: Queen at (5, 5)
+  R6 C7 D12 A11: Queen at (5, 6)
+  R6 C8 D11 A12: Queen at (5, 7)
+  R6 C9 D10 A13: Queen at (5, 8)
+  R6 C10 D9 A14: Queen at (5, 9)
+  R6 C11 D8 A15: Queen at (5, 10)
+  R6 C12 D7 A16: Queen at (5, 11)
+  R6 C13 D6 A17: Queen at (5, 12)
+  R6 C14 D5 A18: Queen at (5, 13)
+  R7 C1 D19 A6: Queen at (6, 0)
+  R7 C2 D18 A7: Queen at (6, 1)
+  R7 C3 D17 A8: Queen at (6, 2)
+  R7 C4 D16 A9: Queen at (6, 3)
+  R7 C5 D15 A10: Queen at (6, 4)
+  R7 C6 D14 A11: Queen at (6, 5)
+  R7 C7 D13 A12: Queen at (6, 6)
+  R7 C8 D12 A13: Queen at (6, 7)
+  R7 C9 D11 A14: Queen at (6, 8)
+  R7 C10 D10 A15: Queen at (6, 9)
+  R7 C11 D9 A16: Queen at (6, 10)
+  R7 C12 D8 A17: Queen at (6, 11)
+  R7 C13 D7 A18: Queen at (6, 12)
+  R7 C14 D6 A19: Queen at (6, 13)
+  R8 C1 D20 A7: Queen at (7, 0)
+  R8 C2 D19 A8: Queen at (7, 1)
+  R8 C3 D18 A9: Queen at (7, 2)
+  R8 C4 D17 A10: Queen at (7, 3)
+  R8 C5 D16 A11: Queen at (7, 4)
+  R8 C6 D15 A12: Queen at (7, 5)
+  R8 C7 D14 A13: Queen at (7, 6)
+  R8 C8 D13 A14: Queen at (7, 7)
+  R8 C9 D12 A15: Queen at (7, 8)
+  R8 C10 D11 A16: Queen at (7, 9)
+  R8 C11 D10 A17: Queen at (7, 10)
+  R8 C12 D9 A18: Queen at (7, 11)
+  R8 C13 D8 A19: Queen at (7, 12)
+  R8 C14 D7 A20: Queen at (7, 13)
+  R9 C1 D21 A8: Queen at (8, 0)
+  R9 C2 D20 A9: Queen at (8, 1)
+  R9 C3 D19 A10: Queen at (8, 2)
+  R9 C4 D18 A11: Queen at (8, 3)
+  R9 C5 D17 A12: Queen at (8, 4)
+  R9 C6 D16 A13: Queen at (8, 5)
+  R9 C7 D15 A14: Queen at (8, 6)
+  R9 C8 D14 A15: Queen at (8, 7)
+  R9 C9 D13 A16: Queen at (8, 8)
+  R9 C10 D12 A17: Queen at (8, 9)
+  R9 C11 D11 A18: Queen at (8, 10)
+  R9 C12 D10 A19: Queen at (8, 11)
+  R9 C13 D9 A20: Queen at (8, 12)
+  R9 C14 D8 A21: Queen at (8, 13)
+  R10 C1 D22 A9: Queen at (9, 0)
+  R10 C2 D21 A10: Queen at (9, 1)
+  R10 C3 D20 A11: Queen at (9, 2)
+  R10 C4 D19 A12: Queen at (9, 3)
+  R10 C5 D18 A13: Queen at (9, 4)
+  R10 C6 D17 A14: Queen at (9, 5)
+  R10 C7 D16 A15: Queen at (9, 6)
+  R10 C8 D15 A16: Queen at (9, 7)
+  R10 C9 D14 A17: Queen at (9, 8)
+  R10 C10 D13 A18: Queen at (9, 9)
+  R10 C11 D12 A19: Queen at (9, 10)
+  R10 C12 D11 A20: Queen at (9, 11)
+  R10 C13 D10 A21: Queen at (9, 12)
+  R10 C14 D9 A22: Queen at (9, 13)
+  R11 C1 D23 A10: Queen at (10, 0)
+  R11 C2 D22 A11: Queen at (10, 1)
+  R11 C3 D21 A12: Queen at (10, 2)
+  R11 C4 D20 A13: Queen at (10, 3)
+  R11 C5 D19 A14: Queen at (10, 4)
+  R11 C6 D18 A15: Queen at (10, 5)
+  R11 C7 D17 A16: Queen at (10, 6)
+  R11 C8 D16 A17: Queen at (10, 7)
+  R11 C9 D15 A18: Queen at (10, 8)
+  R11 C10 D14 A19: Queen at (10, 9)
+  R11 C11 D13 A20: Queen at (10, 10)
+  R11 C12 D12 A21: Queen at (10, 11)
+  R11 C13 D11 A22: Queen at (10, 12)
+  R11 C14 D10 A23: Queen at (10, 13)
+  R12 C1 D24 A11: Queen at (11, 0)
+  R12 C2 D23 A12: Queen at (11, 1)
+  R12 C3 D22 A13: Queen at (11, 2)
+  R12 C4 D21 A14: Queen at (11, 3)
+  R12 C5 D20 A15: Queen at (11, 4)
+  R12 C6 D19 A16: Queen at (11, 5)
+  R12 C7 D18 A17: Queen at (11, 6)
+  R12 C8 D17 A18: Queen at (11, 7)
+  R12 C9 D16 A19: Queen at (11, 8)
+  R12 C10 D15 A20: Queen at (11, 9)
+  R12 C11 D14 A21: Queen at (11, 10)
+  R12 C12 D13 A22: Queen at (11, 11)
+  R12 C13 D12 A23: Queen at (11, 12)
+  R12 C14 D11 A24: Queen at (11, 13)
+  R13 C1 D25 A12: Queen at (12, 0)
+  R13 C2 D24 A13: Queen at (12, 1)
+  R13 C3 D23 A14: Queen at (12, 2)
+  R13 C4 D22 A15: Queen at (12, 3)
+  R13 C5 D21 A16: Queen at (12, 4)
+  R13 C6 D20 A17: Queen at (12, 5)
+  R13 C7 D19 A18: Queen at (12, 6)
+  R13 C8 D18 A19: Queen at (12, 7)
+  R13 C9 D17 A20: Queen at (12, 8)
+  R13 C10 D16 A21: Queen at (12, 9)
+  R13 C11 D15 A22: Queen at (12, 10)
+  R13 C12 D14 A23: Queen at (12, 11)
+  R13 C13 D13 A24: Queen at (12, 12)
+  R13 C14 D12 A25: Queen at (12, 13)
+  R14 C1 D26 A13: Queen at (13, 0)
+  R14 C2 D25 A14: Queen at (13, 1)
+  R14 C3 D24 A15: Queen at (13, 2)
+  R14 C4 D23 A16: Queen at (13, 3)
+  R14 C5 D22 A17: Queen at (13, 4)
+  R14 C6 D21 A18: Queen at (13, 5)
+  R14 C7 D20 A19: Queen at (13, 6)
+  R14 C8 D19 A20: Queen at (13, 7)
+  R14 C9 D18 A21: Queen at (13, 8)
+  R14 C10 D17 A22: Queen at (13, 9)
+  R14 C11 D16 A23: Queen at (13, 10)
+  R14 C12 D15 A24: Queen at (13, 11)
+  R14 C13 D14 A25: Queen at (13, 12)
+  R14 C14 D13 A26: Queen at (13, 13)
+  D0: No queen needs to be placed in major diagonal 0
+  A0: No queen needs to be placed in minor diagonal 0
+  D1: No queen needs to be placed in major diagonal 1
+  A1: No queen needs to be placed in minor diagonal 1
+  D2: No queen needs to be placed in major diagonal 2
+  A2: No queen needs to be placed in minor diagonal 2
+  D3: No queen needs to be placed in major diagonal 3
+  A3: No queen needs to be placed in minor diagonal 3
+  D4: No queen needs to be placed in major diagonal 4
+  A4: No queen needs to be placed in minor diagonal 4
+  D5: No queen needs to be placed in major diagonal 5
+  A5: No queen needs to be placed in minor diagonal 5
+  D6: No queen needs to be placed in major diagonal 6
+  A6: No queen needs to be placed in minor diagonal 6
+  D7: No queen needs to be placed in major diagonal 7
+  A7: No queen needs to be placed in minor diagonal 7
+  D8: No queen needs to be placed in major diagonal 8
+  A8: No queen needs to be placed in minor diagonal 8
+  D9: No queen needs to be placed in major diagonal 9
+  A9: No queen needs to be placed in minor diagonal 9
+  D10: No queen needs to be placed in major diagonal 10
+  A10: No queen needs to be placed in minor diagonal 10
+  D11: No queen needs to be placed in major diagonal 11
+  A11: No queen needs to be placed in minor diagonal 11
+  D12: No queen needs to be placed in major diagonal 12
+  A12: No queen needs to be placed in minor diagonal 12
+  D13: No queen needs to be placed in major diagonal 13
+  A13: No queen needs to be placed in minor diagonal 13
+  D14: No queen needs to be placed in major diagonal 14
+  A14: No queen needs to be placed in minor diagonal 14
+  D15: No queen needs to be placed in major diagonal 15
+  A15: No queen needs to be placed in minor diagonal 15
+  D16: No queen needs to be placed in major diagonal 16
+  A16: No queen needs to be placed in minor diagonal 16
+  D17: No queen needs to be placed in major diagonal 17
+  A17: No queen needs to be placed in minor diagonal 17
+  D18: No queen needs to be placed in major diagonal 18
+  A18: No queen needs to be placed in minor diagonal 18
+  D19: No queen needs to be placed in major diagonal 19
+  A19: No queen needs to be placed in minor diagonal 19
+  D20: No queen needs to be placed in major diagonal 20
+  A20: No queen needs to be placed in minor diagonal 20
+  D21: No queen needs to be placed in major diagonal 21
+  A21: No queen needs to be placed in minor diagonal 21
+  D22: No queen needs to be placed in major diagonal 22
+  A22: No queen needs to be placed in minor diagonal 22
+  D23: No queen needs to be placed in major diagonal 23
+  A23: No queen needs to be placed in minor diagonal 23
+  D24: No queen needs to be placed in major diagonal 24
+  A24: No queen needs to be placed in minor diagonal 24
+  D25: No queen needs to be placed in major diagonal 25
+  A25: No queen needs to be placed in minor diagonal 25
+  D26: No queen needs to be placed in major diagonal 26
+  A26: No queen needs to be placed in minor diagonal 26
+
