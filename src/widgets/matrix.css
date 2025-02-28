@@ -1,0 +1,40 @@
+.heatmap-table {
+  border-collapse: collapse;
+}
+.heatmap-table td {
+  border: 1px solid white;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+}
+.heatmap-table td.x-axis {
+  border-top: 2px solid black;
+}
+.heatmap-table td.y-axis {
+  border-left: 2px solid black;
+}
+.heatmap-table td.origin-cell {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+.cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.cell-coordinates {
+  font-size: 10px;
+  opacity: 0.8;
+}
+.cell-value {
+  font-size: 16px;
+}
+.arrow-overlay {
+  overflow: visible;
+}

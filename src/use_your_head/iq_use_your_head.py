@@ -210,7 +210,6 @@ def obtener_celdas_con_uno(matriz):
 
 """
 main_solve()
-"""
 # Cuenta posibles celdas para poner piezas.
 candidates = {}
 for fila in range(TABLERO_FILAS):
@@ -241,6 +240,7 @@ data = {"constraints": constraints, "candidates": candidates}
 # Convert to YAML
 yaml_data = yaml.dump(data, sort_keys=False, allow_unicode=True)
 print(yaml_data)
+"""
 """
 La solución número 1000 debe ser:
 Y Y M M T T T T t t t
